@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>about | 渐离</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/solitude/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/solitude/css/index.css?v=2.1.1"><!-- inject head--><link rel="canonical" href="https://enlt.github.io/solitude/about/"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="about"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="渐离"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/solitude/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/solitude/img/pwa/favicon.ico" sizes="180x180"><script>console.log(' %c Solitude %c ' + '2.1.1' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+          },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/solitude/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        sayhello: {
+            morning: "✨ Good morning. It's a new day",
+            noon: "It's time for a midday break",
+            afternoon: "Tea time. 🍵",
+            night: "early bedtime",
+            goodnight: "Good night 😴",
+        },
+        sayhello2: [],
+        sayhello3: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: true,
+    is_home: false,
+    page: 'about',
+    toc: false,
+    comment: false,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body" data-type="about"><!-- universe--><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/solitude/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/solitude/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/solitude/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fa-solid fa-circle-half-stroke"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"></div></div></div></div><!-- keyboard--><!-- righhtside--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/solitude/" title="返回博客主页"><span class="title">Solitude</span><i class="solitude fa-solid fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">about</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fa-solid fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fa-solid fa-bars"></i></a></div></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><div id="about-page"><div class="author-info"><div class="author-tag-left"><span class="author-tag">海水倾西乱滔天</span><span class="author-tag">大浪惊起尽可怜</span><span class="author-tag">莫言令己亡身道</span><span class="author-tag">惟愿荆棘驻万年</span></div><div class="author-img"><img src="https://i1.wp.com/cdn.cbd.int/luoh-blog@0.0.7/image/gif/avatar.gif"></div><div class="author-tag-right"><span class="author-tag">白发白衣皆傍地</span><span class="author-tag">花开花谢复四季</span><span class="author-tag">余晖映湖亦孤影</span><span class="author-tag">日隐月现催物栖</span></div></div><div class="author-title">关于本站</div><div class="author-content"><div class="author-content-item myInfoAndSayHello"><div class="title1">你好，很高兴认识你👋</div><div class="title2"><span class="inline-word">我是「落渐离」</span></div><div class="title1">是一名学生</div></div><div class="aboutsiteTips author-content-item"><div class="author-content-item-tips">追求</div><h2><span class="inline-word">源于<br>热爱而去享受</span><div class="mask"><span class="first-tips" data-show="">生活</span><span>学习</span><span>程序</span><span data-up="">娱乐</span></div></h2></div></div><script>var pursuitInterval = null;
+pursuitInterval = setInterval(function () {
+    const show = document.querySelector('span[data-show]')
+    const next = show.nextElementSibling || document.querySelector('.first-tips')
+    const up = document.querySelector('span[data-up]')
+    if (up) {
+        up.removeAttribute('data-up')
+    }
+    show.removeAttribute('data-show')
+    show.setAttribute('data-up', '')
+    next.setAttribute('data-show', '')
+}, 2000)
+
+document.addEventListener('pjax:send', function () {
+    clearInterval(pursuitInterval);
+});</script><div class="author-content"><div class="author-content-item skills"><div class="card-content"><div class="author-content-item-tips">技能</div><span class="author-content-item-title">开启创造力</span><div class="skills-style-group"><div class="tags-group-all"><div class="tags-group-wrapper"><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1184e9.jpg" title="Java"></div><div class="tags-group-icon" style="background:#57b6e6"><img src="https://bu.dusays.com/2023/04/09/643293b0f0abe.png" title="Docker"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#4082c3"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c240e.png" title="Photoshop"></div><div class="tags-group-icon" style="background:#333"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/svg/node-logo.svg" title="Node"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#2e3a41"><img src="https://bu.dusays.com/2023/04/09/643293b68026c.png" title="Webpack"></div><div class="tags-group-icon" style="background:#fff"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/pinia-logo.svg" title="Pinia"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1230f7.png" title="Python"></div><div class="tags-group-icon" style="background:#937df7"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/vite-logo.svg" title="Vite"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#4499e4"><img src="https://bu.dusays.com/2023/04/09/643293b1055c2.png" title="Flutter"></div><div class="tags-group-icon" style="background:#b8f0ae"><img src="https://bu.dusays.com/2023/04/09/643293b6788bd.png" title="Vue"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#222"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" title="React"></div><div class="tags-group-icon" style="background:#2c51db"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c251e.png" title="CSS3"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#f7cb4f"><img src="https://bu.dusays.com/2023/04/09/643293b121f02.png" title="JS"></div><div class="tags-group-icon" style="background:#e9572b"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c241c.png" title="HTML"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#df5b40"><img src="https://bu.dusays.com/2023/04/09/643293b10ccdd.webp" title="Git"></div><div class="tags-group-icon" style="background:#e65164"><img src="https://bu.dusays.com/2022/11/19/6378d6458c6b6.png" title="Apifox"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1184e9.jpg" title="Java"></div><div class="tags-group-icon" style="background:#57b6e6"><img src="https://bu.dusays.com/2023/04/09/643293b0f0abe.png" title="Docker"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#4082c3"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c240e.png" title="Photoshop"></div><div class="tags-group-icon" style="background:#333"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/svg/node-logo.svg" title="Node"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#2e3a41"><img src="https://bu.dusays.com/2023/04/09/643293b68026c.png" title="Webpack"></div><div class="tags-group-icon" style="background:#fff"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/pinia-logo.svg" title="Pinia"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1230f7.png" title="Python"></div><div class="tags-group-icon" style="background:#937df7"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/vite-logo.svg" title="Vite"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#4499e4"><img src="https://bu.dusays.com/2023/04/09/643293b1055c2.png" title="Flutter"></div><div class="tags-group-icon" style="background:#b8f0ae"><img src="https://bu.dusays.com/2023/04/09/643293b6788bd.png" title="Vue"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#222"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" title="React"></div><div class="tags-group-icon" style="background:#2c51db"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c251e.png" title="CSS3"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#f7cb4f"><img src="https://bu.dusays.com/2023/04/09/643293b121f02.png" title="JS"></div><div class="tags-group-icon" style="background:#e9572b"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c241c.png" title="HTML"></div></div><div class="tags-group-icon-pair"><div class="tags-group-icon" style="background:#df5b40"><img src="https://bu.dusays.com/2023/04/09/643293b10ccdd.webp" title="Git"></div><div class="tags-group-icon" style="background:#e65164"><img src="https://bu.dusays.com/2022/11/19/6378d6458c6b6.png" title="Apifox"></div></div></div></div><div class="skills-list"><div class="skill-info"><div class="skill-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1184e9.jpg" title="Java"></div><div class="skill-name"><span>Java</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#57b6e6"><img src="https://bu.dusays.com/2023/04/09/643293b0f0abe.png" title="Docker"></div><div class="skill-name"><span>Docker</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#4082c3"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c240e.png" title="Photoshop"></div><div class="skill-name"><span>Photoshop</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#333"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/svg/node-logo.svg" title="Node"></div><div class="skill-name"><span>Node</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#2e3a41"><img src="https://bu.dusays.com/2023/04/09/643293b68026c.png" title="Webpack"></div><div class="skill-name"><span>Webpack</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#fff"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/pinia-logo.svg" title="Pinia"></div><div class="skill-name"><span>Pinia</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#fff"><img src="https://bu.dusays.com/2023/04/09/643293b1230f7.png" title="Python"></div><div class="skill-name"><span>Python</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#937df7"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/vite-logo.svg" title="Vite"></div><div class="skill-name"><span>Vite</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#4499e4"><img src="https://bu.dusays.com/2023/04/09/643293b1055c2.png" title="Flutter"></div><div class="skill-name"><span>Flutter</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#b8f0ae"><img src="https://bu.dusays.com/2023/04/09/643293b6788bd.png" title="Vue"></div><div class="skill-name"><span>Vue</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#222"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" title="React"></div><div class="skill-name"><span>React</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#2c51db"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c251e.png" title="CSS3"></div><div class="skill-name"><span>CSS3</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#f7cb4f"><img src="https://bu.dusays.com/2023/04/09/643293b121f02.png" title="JS"></div><div class="skill-name"><span>JS</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#e9572b"><img src="https://bu.dusays.com/2022/12/15/639aa3a5c241c.png" title="HTML"></div><div class="skill-name"><span>HTML</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#df5b40"><img src="https://bu.dusays.com/2023/04/09/643293b10ccdd.webp" title="Git"></div><div class="skill-name"><span>Git</span></div></div><div class="skill-info"><div class="skill-icon" style="background:#e65164"><img src="https://bu.dusays.com/2022/11/19/6378d6458c6b6.png" title="Apifox"></div><div class="skill-name"><span>Apifox</span></div></div><div class="etc">...</div></div></div></div></div><div class="author-content-item careers"><div class="card-content"><div class="author-content-item-tips">生涯</div><span class="author-content-item-title">无限进步</span><div class="careers-group"><div class="careers-item"><div class="circle" style="background:#357ef5"></div><div class="name">学生, 学习</div></div></div><img class="author-content-img" src="https://i1.wp.com/pic.chino.my.to/i/2024/08/17/316803.png" alt="生涯"></div></div></div><div class="author-content"><div class="author-content-item personalities"><div class="author-content-item-tips">性格</div><span class="author-content-item-title">调停者</span><div class="title2" style="color:#56a178">INFP-T</div><div class="image"><img class="nolazyload" src="https://cdn.cbd.int/luoh-blog@0.1.3/image/svg/INFP-T.svg"></div><div class="post-tips">在 <a target="_blank" rel="noopener" href="https://www.16personalities.com/">16personalities </a>了解更多关于 <a target="_blank" rel="noopener" href="https://www.16personalities.com/ch/infp-人格">调停者</a></div></div><div class="author-content-item myphoto"><img class="author-content-img" src="https://i1.wp.com/pic.chino.my.to/i/2024/08/17/603839.webp" alt="my photo"></div></div><div class="author-content"><div class="author-content-item maxim"><div class="author-content-item-tips">座右铭</div><span class="maxim-title"><span>恍恍惚惚勤勤恳恳</span><span>失失得得失失</span></span></div><div class="author-content-item buff"><div class="card-content"><div class="author-content-item-tips">特长</div><span class="buff-title"><span>可能清晰的人？<span class="inline-word">（）</span></span><span>学习能力<span class="inline-word">-MAX</span></span></span></div></div></div><div class="author-content"><div class="author-content-item game-apex" style="background: url(https://i1.wp.com/pic.chino.my.to/i/2024/08/17/minecraft.png) no-repeat top; background-size: cover;"><div class="card-content"><div class="author-content-item-tips">爱好游戏</div><span class="author-content-item-title">Minecraft</span><div class="content-bottom"><div class="tips">我的世界</div><div class="tips">MC</div></div></div></div></div><div class="author-content"><div class="author-content-item like-technology" style="background: url(https://i1.wp.com/pic.chino.my.to/i/2024/08/17/980628.webp) no-repeat center;"><div class="card-content"><div class="author-content-item-tips">关注偏好</div><span class="author-content-item-title">AI</span><div class="content-bottom"><div class="tips">各类新奇AI</div></div></div></div><div class="author-content-item like-music" style="background: url(https://i1.wp.com/pic.chino.my.to/i/2024/08/17/938575.webp) no-repeat center;"><div class="card-content"><div class="author-content-item-tips">音乐偏好</div><span class="author-content-item-title">杂</span><div class="content-bottom"><div class="tips">跟 落渐离 一起欣赏更多音乐</div><div class="banner-button-group"><a class="banner-button" href="/solitude/music/"><i class="solitude fa-solid fa-circle-chevron-right"></i><span class="banner-button-text">更多推荐</span></a></div></div></div></div></div><div class="author-content"><style>:root {
+    --site-about-oneself-map--light: url(https://i1.wp.com/pic.chino.my.to/i/2024/08/17/258127.webp);
+    --site-about-oneself-map--dark: url(https://i1.wp.com/pic.chino.my.to/i/2024/08/17/029810.webp);
+}</style><div class="author-content-item-group column mapAndInfo"><div class="author-content-item map single"><span class="map-title">我现在住在中国，河南省</span></div><div class="author-content-item selfInfo single"><div><span class="selfInfo-title">生于</span><span class="selfInfo-content" style="color: #43a6c6;">2011</span></div><div><span class="selfInfo-title">规划</span><span class="selfInfo-content" style="color: #c69043;">学习</span></div><div><span class="selfInfo-title">现在职业</span><span class="selfInfo-content" style="color: #b04fe6;">学生</span></div></div></div></div><div class="author-content" id="tenyear"><div class="create-site-post author-content-item single"><div class="author-content-item-tips">学习时光</div><div class="author-content-item-title">愿离开之际 可回忆此时</div><p></p><div class="tenyear-timeline"><div class="progress"></div><div class="past-time"></div><div class="percentage-label"></div></div><div class="time-labels"><div class="start-time" id="tenyear-start-time">2015年</div><div class="end-time" id="tenyear-end-time">2031年</div></div></div></div><script>function parseDateString(e) {
+    return e.replace(/年|月/g, '-').replace(/日/g, '');
+}
+
+function tenYear() {
+    let progressElement = document.querySelector(".progress");
+    let pastTimeElement = document.querySelector(".past-time");
+    let percentageLabelElement = document.querySelector(".percentage-label");
+    let startTimeElement = document.getElementById("tenyear-start-time");
+    let endTimeElement = document.getElementById("tenyear-end-time");
+
+    let startTime = new Date(parseDateString(startTimeElement.textContent)).getTime();
+    let endTime = new Date(parseDateString(endTimeElement.textContent)).getTime();
+
+    function updateProgress() {
+        let currentTime = new Date().getTime();
+        let progress = ((currentTime - startTime) / (endTime - startTime) * 100);
+        let progressPercentage = progress <= 100 ? progress + "%" : "100%";
+
+        pastTimeElement.style.setProperty("--past-time-percentage", progress + "%");
+        progressElement.style.setProperty("--progress-percentage", progressPercentage);
+        if(progress > 5){
+            percentageLabelElement.textContent = `${progress.toFixed(0)}%`;
+            percentageLabelElement.style.left = `calc(${progress}% - 35px)`;
+        }
+    }
+
+    percentageLabelElement.style.visibility = "visible";
+    updateProgress();
+}
+
+document.getElementById("tenyear") && tenYear() && window.Pjax.on('complete', tenYear)</script></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/solitude/">落渐离</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="Theme">Theme</a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/solitude/js/utils.js?v=2.1.1"></script><script src="/solitude/js/main.js?v=2.1.1"></script><script src="/solitude/js/third_party/waterfall.min.js?v=2.1.1"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/solitude/js/tw_cn.js?v=2.1.1"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff', '.rs_show', '.rs_hide'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["posts/4a17b156.html"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
