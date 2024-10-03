@@ -1,0 +1,611 @@
+site:
+  name:
+    class: text # text / i_class / img
+    custom: 落憾 # Solitude / fas fa-ghost / /img/pwa/favicon.ico
+  siteIcon: img/pwa/favicon.png
+  icon: img/pwa/favicon.png # Site icon / 网站图标
+
+# 导航栏
+nav:
+  # 菜单
+  menu:
+     文章:
+       列表: /archives/ || fas fa-folder-closed
+       分类: /categories/ || fas fa-clone
+     我的:
+       音乐馆: /music/ || fa-solid fa-music
+       相册: /album/ || fa-solid fa-images
+       # 宝藏博主: javascript:travelling() || fas fa-gift
+       # 闲言碎语: /essay/ || fa-solid fa-book
+       初音未来: /mikutap/ || fa-solid fa-guitar
+     其他:
+       空调: /air-conditioner/ || fa-solid fa-fan
+       留言板: /message/ || fa-solid fa-envelope
+     关于:
+       本站: /about/ || fas fa-address-card
+       随便逛逛: javascript:toRandomPost() || fa-solid fa-dice
+
+  # 右侧按钮
+  right:
+    random: false #.随机文章按钮
+    custom:
+     - name: Start # name
+       url: https://www.travellings.cn/go.html # Jump link
+       icon: fas fa-train # Icon
+       onclick: # Click event
+       id: travellings_button # id
+
+# 首页顶部
+hometop:
+  enable: true
+  banner:
+    title: 红线落人间 <br> 清酒破三弦
+    url: 仅望得君欢
+    icon:
+      Java:
+        img: https://bu.dusays.com/2023/04/09/643293b1184e9.jpg
+        color: "#fff"
+      Docker:
+        img: https://bu.dusays.com/2023/04/09/643293b0f0abe.png
+        color: "#57b6e6"
+      Photoshop:
+        img: https://bu.dusays.com/2022/12/15/639aa3a5c240e.png
+        color: "#4082c3"
+      Node:
+        img: https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/svg/node-logo.svg
+        color: "#333"
+      Webpack:
+        img: https://bu.dusays.com/2023/04/09/643293b68026c.png
+        color: "#2e3a41"
+      Pinia:
+        img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/pinia-logo.svg
+        color: "#fff"
+      Python:
+        img: https://bu.dusays.com/2023/04/09/643293b1230f7.png
+        color: "#fff"
+      Vite:
+        img: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/vite-logo.svg
+        color: "#937df7"
+      Flutter:
+        img: https://bu.dusays.com/2023/04/09/643293b1055c2.png
+        color: "#4499e4"
+      Vue:
+        img: https://bu.dusays.com/2023/04/09/643293b6788bd.png
+        color: "#b8f0ae"
+      React:
+        img: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ088L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K
+        color: "#222"
+      CSS3:
+        img: https://bu.dusays.com/2022/12/15/639aa3a5c251e.png
+        color: "#2c51db"
+      JS:
+        img: https://bu.dusays.com/2023/04/09/643293b121f02.png
+        color: "#f7cb4f"
+      HTML:
+        img: https://bu.dusays.com/2022/12/15/639aa3a5c241c.png
+        color: "#e9572b"
+      Git:
+        img: https://bu.dusays.com/2023/04/09/643293b10ccdd.webp
+        color: "#df5b40"
+      Apifox:
+        img: https://bu.dusays.com/2022/11/19/6378d6458c6b6.png
+        color: "#e65164"
+  group:
+    热门: /tags/Fire/ || fas fa-fire || linear-gradient(to right,#f65,#ffbf37)
+  recommendList:
+    sup: Top
+    title: 花间一壶酒，剑客于千秋
+    url: https://cdn.cbd.int/luoh-blog@0.0.8/image/webp/banner-image.webp
+    img: https://cdn.cbd.int/luoh-blog@0.0.8/image/webp/banner-image.webp
+    color: "none"
+
+
+# 文章推荐轮播图
+carousel: false
+
+# 侧边栏
+aside:
+
+  # 值: about(信息卡), newestPost(最新文章), allInfo(网站信息), flip(官方账号二维码), newest_comment(最新评论)
+  # Sticky: 固定位置 / noSticky: 不固定位置
+  home: # on the homepage
+    noSticky: "about"
+    Sticky: "allInfo"
+  post: # on the article page
+    noSticky: "about"
+    Sticky: "newestPost"
+  page: # on the page
+    noSticky: "about"
+    Sticky: "newestPost,allInfo"
+
+  # 菜单栏位置(0: 左 1: 右)
+  position: 1
+
+  # 信息卡
+  card:
+    style: 1 # 0: default 1: style 1 2: style 2
+    author:
+      img: https://i1.wp.com/cdn.cbd.int/luoh-blog@0.0.7/image/gif/avatar.gif # url
+      sticker: # url, 24x24 size
+    url: /about/ # link / 点击头像跳转链接
+    background: https://pic.chino.my.to/i/2024/08/19/565800.webp # Background image(Invalid if style is 0)
+    # 内容(Style 0 无效)
+    content: 这是我的博客 # 这是我的博客
+    content2: 一个热爱生活的人 # 一个热爱生活的人
+    # Style 2 无效
+    sayhello:
+      morning: 早啊，新的一天开始咯 ☀️
+      noon: 午休时间到啦
+      afternoon: 下午茶～🍵
+      night: 早点睡叭 🍂
+      goodnight: 晚安 😴
+    # Style 2 无效, 点击 sayhello 时触发
+    sayhello2:
+      - 海水倾西乱滔天
+      - 大浪惊起尽可怜
+      - 莫言令己亡身道
+      - 惟愿荆棘驻万年
+    # 社交信息图标
+    information:
+      Github: https://github.com/enlt || fab fa-github # Name: link || icon
+      Telegram: https://t.me/enltc || fa-brands fa-telegram
+
+  # 侧边栏二维码组件
+  flip:
+    favicon: # url (favicon)
+    face: # url (QR code)
+    backface: # url (QR code)
+    backcolor: "var(--efu-blue)" # Background color
+
+  # 最新评论(⚠️ 需要先配置评论)
+  newest_comment:
+    enable: false
+    storage: .5 # 缓存时间 1: 1天 / .5 : 半天
+    limit: 5 # 评论数
+
+  # 文章目录
+  toc:
+    post: true
+    page: true
+    vague: true
+
+  # 标签
+  tags:
+    enable: true
+    limit: 20 # Number of tags displayed
+    # Highlighted tags
+    highlight_list:
+      - Hexo
+
+  # 归档
+  archive:
+    enable: false
+    type: "month" # month/year
+
+  # 网站信息
+  siteinfo:
+    # 文章数量
+    postcount: true
+    # 总字数
+    wordcount: true
+    # PV
+    pv: true
+    # UV
+    uv: true
+    # 最后更新日期
+    updatetime: false
+    # 网站创建时间
+    runtimeenable: true
+    # 格式: yyyy-MM-dd hh-mm-ss
+    runtime: "2024-04-23 00:00:00"
+
+# 首页文章配置信息
+index_post_list:
+  direction: column # row / column
+  column: 2
+  # 1: 使用自己写的文章摘要
+  # 2: 自动获取描述或截图
+  # 3: 仅使用截取
+  # false: 不显示
+  content: true
+  # 截图内容长度
+  length: 500
+  # left: 左侧 : left / right: 右侧 : right / both: 两侧 : both
+  cover: both
+
+# 页面默认设置
+page:
+  # 404 页面
+  error: true
+  # 标签页面
+  tags: true
+  # 分类页面
+  categories: true
+  # list: 排序列表 / 1: 跟随首页列表
+  archives: 0
+  # 默认值
+  default:
+    # 未设置封面时的默认图片
+    cover:
+      - /img/default.png # 默认图片
+
+# 文章默认设置
+post:
+  default:
+    # 文章封面显示
+    top_cover: true
+    # 未设置封面时的默认图片
+    cover:
+      - img/default.png # 默认图片 
+    # 位置
+    locate: 中国
+
+    # 版权
+    copyright:
+      enable: true
+      author:
+        url: /about/
+        # 不填显示默认图标
+        img: https://i1.wp.com/cdn.cbd.int/luoh-blog@0.0.7/image/gif/avatar.gif
+      # 许可证
+      license: CC BY-NC-SA 4.0
+      # 许可证链接
+      licenurl: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+
+  # 文章元信息
+  meta:
+    # 发布日期
+    date: true
+    # 更新日期
+    updated: false
+    # 位置
+    locate: true
+    # 字数
+    wordcount: true
+    # uv
+    readtime: true
+    # pv
+    pv: true
+    # 评论数
+    comment: true
+
+  # 打赏
+  award:
+    enable: false
+    appreciators: /about/
+    # 打赏标题
+    title: 感谢您的赞赏
+    desc: 由于您的支持，我才能够实现写作的价值。
+    # 打赏列表
+    list:
+      # - name: Github Sponsor
+        # qcode: https://s3.qjqq.cn/47/661ba900c4bc1.webp!color
+        # url: https://github.com/sponsors/everfu
+        # color: var(--efu-black)
+
+  # 分享图标
+  share:
+    enable: true
+    list:
+      - qq
+      - weibo
+      - twitter
+      - facebook
+      - telegram
+      - whatsapp
+      - linkedin
+      - link
+      - qrcode
+  rss: # /atom.xml
+
+  # 文章封面取色
+  covercolor:
+    enable: true
+    mode: api
+    api: https://api.qjqq.cn/api/Imgcolor?img=
+    # Storage / 缓存时间
+    time: 43200000
+
+  footer:
+    enable: false
+    desc: 文章来自 Ethan Lament
+    button: 
+      enable: false
+      name: Learn more / 了解更多
+      url: /about/
+
+# 自定义主题颜色
+theme_color:
+  dark: "#a5bda2" # 暗黑模式
+  dark_op: "#a5bda2" # 暗黑模式透明
+  dark_op_deep: "#a5bda2" # 暗黑模式透明深色
+  dark_none: "#a5bda2" # 暗黑模式透明无色
+  light: "#425AEF" # 明亮模式
+  light_op: "#4259ef23" # 明亮模式透明
+  light_op_deep: "#4259efdd" # 明亮模式透明深色
+  light_none: "#4259ef01" # 明亮模式透明无色
+
+# 显示模式
+display_mode:
+  # auto: 自动切换（识别设备当前主题模式） / dark: 深色模式 / light: 浅色模式
+  type: auto
+  # 开启后深色模式会显示星空背景
+  universe: true
+
+# 相关文章
+related_post:
+  enable: true
+  limit: 2
+  # created: 发布日期 / updated: 更新日期
+  date_type: created
+
+# 页脚
+footer:
+  information:
+    author: false
+    left:
+       Github: https://github.com/everfu || fab fa-github # Name: link || icon
+       Mail: mailto:o@efu.me || fas fa-envelope
+    right:
+       Bilibili: https://space.bilibili.com/1329819902 || fab fa-bilibili
+       Douyin: https://v.douyin.com/iJsLc8jt/ || fab fa-tiktok
+  group:
+    导航:
+      归档: /archives/
+      分类: /categories/
+      标签: /tags/
+    服务:
+      青桔API: https://api.76.al
+      青桔图床: https://img.qjqq.cn
+    支持:
+      打赏记录: /about/
+    协议:
+      Cookies: /cookies/
+      隐私协议: /privacy/
+      版权协议: /copyright/
+
+  # 随机友链
+  randomlink: false
+  # Privacy policy
+  # 隐私政策
+  privacy: /privacy/
+  # License
+  license: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh # License
+
+  # 页脚信息文字
+  links:
+    - name: 主题
+      url: https://github.com/everfu/hexo-theme-solitude
+    - name: RSS
+      url: /atom.xml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 404 页面
+errorpage:
+  img: https://cdn.cbd.int/luoh-blog@0.0.7/image/gif/404.gif
+  text: 怪兽把页面拖走了...
+  recommendList: false
+
+# 即可短文
+says:
+  enable: false
+  home_mini: false
+  page: /essay/
+  style: 1
+  strip: 30
+
+# 最近评论页面
+recent_comments:
+  enable: false
+  limit: 50 # ⚠️waline 仅支持最大50条评论
+  cache: 0.2 # 1 = 1天
+  page: /recentcomments/ # 最近评论页面
+  img: /img/recent_c.avif # 中控台显示图片（不填不显示）
+
+# 弹幕留言页面
+envelope:
+  enable: false
+  line: 10 # 显示行数
+  speed: 20 # 播放速度
+  hover: true # 鼠标悬停暂停
+  loop: true # 循环播放
+  page: /comment/ # 留言板页面
+
+copy:
+  enable: true
+  # 复制后链接版权信息
+  copyright:
+    enable: false
+    # 复制文字时超过多少字数显示
+    limit: 50
+
+# 图片懒加载
+lazyload:
+  enable: true
+  # post, site
+  field: site
+  # 加载时替换图
+  placeholder: /img/loading.gif
+  # 加载失败替换图
+  errorimg: /img/loading.gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 代码块高亮
+highlight:
+  enable: true
+  # 当超过多少字时显示折叠按钮
+  limit: 200
+  # 是否启用复制按钮
+  copy: true
+  # 是否默认展开
+  expand: true
+  # default: 默认 / mac : 苹果终端
+  theme: mac
+  color: default
+
+# 图片灯箱
+lightbox: true
+# 警告: 请任选其一，但不能同时开启。
+fancybox: true
+mediumZoom: false
+
+wordcount: true
+
+busuanzi: true
+busuanzi_use: 1
+
+
+
+
+
+font:
+  font-size: 16px
+  code-font-size: 16px
+  # 全局字体
+  font-family: "PingFang SC, Hiragino Sans GB, Microsoft YaHei"
+  # 代码字体
+  code-font-family: '"monospace", monospace'
+
+# 自定义右键菜单
+right_menu:
+  enable: true
+  # 是否显示热门评论开关
+  commentBarrage: false
+  # 简繁体转换
+  translate:
+    enable: true
+    defaultEncoding: 2 # 1: 默认繁体 2: 默认简体
+    translateDelay: 0 # 首次加载翻译迟疑时间
+  # 自定义列表
+  custom_list:
+     - name: 随机短文
+       click: toRandomPost()
+       id: menu-randomPost
+       class:
+       icon: fas fa-tower-broadcast
+     - name: 全部分类
+       click: pjax.loadUrl('/categories/')
+       id:
+       class:
+       icon: fas fa-clone
+     - name: 全部标签
+       click: pjax.loadUrl('/tags/')
+       id:
+       class:
+       icon: fas fa-tags
+
+memorial:
+  enable: false
+  date:
+   - 7-7 # 卢沟桥事变
+   - 9-18 # 九一八事变
+   - 12-13 # 南京大屠杀国家公祭日
+
+# 背景图片
+background:
+  enable: false
+  opacity: .2
+  dark: https://pic.chino.my.to/i/2024/08/19/565800.webp
+  light: https://pic.chino.my.to/i/2024/08/19/565800.webp
+
+# 评论
+comment:
+  use: twikoo
+  commentBarrage: false # 热评开关
+  lazyload: true # 懒加载
+  count: true # 评论数显示
+  avatar: https://cravatar.cn # 热评获取头像的源
+  newest_comment: # 最新评论
+    enable: false
+    storage: .2 # 缓存时间
+
+# Twikoo 配置信息
+twikoo: # https://twikoo.js.org/
+  envId: https://enltic-twikoo.hf.space/ # 你部署twikoo的地址
+  lang: zh-CN # 语言
+  accessToken: # accessToken（在浏览器控制台cookies获取）
+
+# 搜索
+search:
+  enable: true
+  type: local # 选择local
+  # 推荐标签
+  tags:
+  # - Solitude
+  # - Hexo
+  algolia:
+  # hits:
+  # per_page: 6
+  local:
+    preload: true
+    CDN:
+
+CDN:
+  internal: cbd
+  third_party: cdnjs
+  version: true
+  custom_format: //open.lightxi.com/cdnjs/ajax/libs/${cdnjs_name}/${version}/${min_cdnjs_file} # Custom format
+  option:
+    busuanzi_qj_js: https://pv.lemonso.com/js
+    # algolia_search:
+    # instantsearch:
+    # pjax:
+    twikoo: https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js
+    # waline_js:
+    # waline_css:
+    # katex:
+    # katex_copytex:
+    # lazyload:
+    # aplayer_css:
+    # aplayer_js:
+    # meting_js:
+    # pace_js:
+    # swiper_css:
+    # swiper_js:
+    # busuanzi_js: https://cdn.cbd.int/penndu@1.0.0/bsz.js
+    # snackbar_js:
