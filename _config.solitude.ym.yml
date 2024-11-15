@@ -1,0 +1,586 @@
+# 网站信息
+site:
+  name:
+    class: text # text / i_class / img
+    custom: LUOH-AN # Solitude / fas fa-ghost / /img/pwa/favicon.ico
+  icon: /img/favicon.ico # 网站图标
+
+# 导航栏
+nav:
+  # 左侧盒子
+  group:
+    我的:
+      音乐馆: https://music.luoh.pages.dev/ || https://fastly.jsdelivr.net/gh/Richard9394/MingCute@master/svg/media/music_3_fill.svg
+      MIKUTAP: https://mikutap.luoh.pages.dev/ || https://fastly.jsdelivr.net/gh/Richard9394/MingCute@master/svg/media/music_2_ai_fill.svg
+      表情一览: https://emoji-show.luoh.pages.dev/ || https://fastly.jsdelivr.net/gh/Richard9394/MingCute@master/svg/emoji/emoji_fill.svg
+      Cover: https://pic.chino.my.to/cover || https://fastly.jsdelivr.net/gh/Richard9394/MingCute@master/svg/design/background_fill.svg
+  # 菜单
+  menu:
+    # 首页: / # name: link
+    文库: # name
+      全部文章: /archives/ || fas fa-folder-closed # item name: link || icon
+      分类列表: /categories/ || fas fa-clone
+      标签列表: /tags/ || fas fa-tags
+    友链:
+      友情链接: /links/ || fas fa-user-group
+      宝藏博主: javascript:travelling() || fas fa-gift
+    我的:
+      我的装备: /equipment/ || fas fa-tools
+      # 在线工具: /tlink/ || fas fa-toolbox
+      关于本站: /about/ || fas fa-user
+  # 右侧按钮
+  right:
+    random: true # 随机文章按钮
+    custom:
+      #   url: https://www.travellings.cn/go.html # Jump link
+      #   icon: fas fa-train # Icon
+      #   onclick: # Click event
+      #   id: travellings_button # id
+
+# 首页顶部
+hometop:
+  enable: true
+  banner:
+    title: 白发白衣皆傍地<br> 花开花谢复四季
+    url: 落人间，渐隐弦，离愁宣。
+    icon:
+      Nodejs:
+        img: https://ui.everfu.cn/cover/20240827172946.png/cover
+        color: "#242938"
+      Vue:
+        img: https://ui.everfu.cn/cover/20240827173146.png/cover
+        color: "#242938"
+      React:
+        img: https://ui.everfu.cn/avatar/20240827172839.png/cover
+        color: "#242938"
+      HTML:
+        img: https://ui.everfu.cn/cover/20240827173208.png/cover
+        color: "#e34c26"
+      CSS:
+        img: https://ui.everfu.cn/cover/20240827173227.png/cover
+        color: "#0277BD"
+      JavaScript:
+        img: https://ui.everfu.cn/cover/20240827173248.png/cover
+        color: "#EFDB50"
+  group:
+    热门: /tags/Fire/ || fas fa-fire || linear-gradient(to right,#f65,#ffbf37)
+  recommendList:
+    sup: 置顶
+    title: Solitude 官方文档
+    url: https://solitude.js.org/
+    img: https://ui.everfu.cn/cover/20240827173743.png/cover
+    color: "none"
+
+# tip：建议开了这个就不要开hometop，其功能类似
+carousel: true
+
+position: 1 # left(0): 左侧 / right(1):右侧
+
+# 信息卡
+card:
+  style: 0 # 0: default 1: style 1 2: style 2
+  author:
+    img: https://fastly.jsdelivr.net/npm/luoh-blog-static@0.0.7/image/gif/avatar.gif
+    url: https://everfu.cn # link / 点击头像跳转链接
+  background: https://fastly.jsdelivr.net/npm/luoh-blog-static@0.0.7/image/gif/avatar.gif
+  # 内容(Style 0 无效)
+  content: 这是我分享自己写作的一个平台
+  content2: 我是一个热爱开源的小子
+  # Style 2 无效
+  sayhello:
+    morning: ✨ 早上好，新的一天开始了
+    noon: 中午饭时间
+    afternoon: 下午茶时间 ☕️
+    night: 不要熬夜哦
+    goodnight: 晚安，早点休息
+  # Style 2 无效, 点击 sayhello 时触发
+  sayhello2:
+    - 你可以的
+    - 相信你可以的
+    - 你一定可以的
+  # 社交信息图标
+  information:
+    Github: https://github.com/everfu || fab fa-github # Name: link || icon
+    Bilibili: https://space.bilibili.com/1329819902 || fab fa-bilibili
+
+# 侧边栏二维码组件
+flip:
+  favicon: https://fastly.jsdelivr.net/npm/luoh-blog-static@0.0.7/image/gif/avatar.gif # url (favicon)
+  face: # url (QR code)
+  backface: # url (QR code)
+  backcolor: "var(--efu-blue)" # Background color
+
+# 文章目录
+toc:
+  post: true
+  page: true
+  vague: true
+
+# 标签
+tags:
+  enable: true
+  limit: 20
+  highlight_list:
+    - hexo
+
+# 归档
+archive:
+  enable: true
+  type: "month" # month: by month / year: by year
+
+# 网站信息
+siteinfo:
+  # 文章数量
+  postcount: true
+  # 总字数
+  wordcount: true
+  # PV
+  pv: true
+  # UV
+  uv: true
+  # 最后更新日期
+  updatetime: true
+  # 网站创建时间
+  runtimeenable: true
+  # 格式: yyyy-MM-dd hh-mm-ss
+  runtime: "2024-08-24 00:00:00"
+
+# 页面默认设置
+page:
+  # 404 页面
+  error: true
+  # 标签页面
+  tags: true
+  # 分类页面
+  categories: true
+  # list: 排序列表 / 1: 跟随首页列表
+  archives: 0
+  # 默认值
+  default:
+    # 未设置封面时的默认图片
+    cover:
+      - /img/default.avif # 默认图片
+
+# 文章默认设置
+post:
+  default:
+    # 文章封面显示
+    top_cover: true
+    # 未设置封面时的默认图片
+    cover:
+      - /img/default.avif # 默认图片 / default cover
+    # 位置
+    locate: 南昌
+    # 版权
+    copyright:
+      enable: true
+      author:
+        url: https://everfu.cn
+        # 默认使用 site.icon
+        img: https://ui.everfu.cn/avatar/20240827172640.png/banner
+      # 许可证
+      license: CC BY-NC-SA 4.0
+      # 许可证链接
+      licenurl: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+  # 文章元信息
+  meta:
+    # 发布日期
+    date: true
+    # 更新日期
+    updated: true
+    # 位置
+    locate: true
+    # 字数
+    wordcount: true
+    # uv
+    readtime: true
+    # pv
+    pv: true
+    # 评论数
+    comment: true
+  # 打赏
+  award:
+    enable: true
+    appreciators: /about/
+    # 打赏标题
+    title: 感谢您的赞赏
+    desc: 由于您的支持，我才能够实现写作的价值。
+    # 打赏列表
+    list:
+      - name: 微信
+        qcode: https://ui.everfu.cn/avatar/202408291335398.png/cover
+        url: https://s3.qjqq.cn/47/663742bac8e52.webp!color
+        color: var(--efu-green)
+      - name: 支付宝
+        qcode: https://ui.everfu.cn/avatar/202408291338530.png/cover
+        url: https://s3.qjqq.cn/47/66d00a4c7107d.png!color
+        color: var(--efu-blue)
+  # 分享图标
+  share:
+    enable: false
+    list:
+    rss: /atom.xml
+  # 文章封面取色
+  covercolor:
+    enable: true
+    # local: local color / api: api color / ave: oss covercolor
+    mode: ave
+    # api 地址
+    api: https://api.qjqq.cn/api/Imgcolor?img=
+    # 缓存时间
+    time: 43200000
+  footer:
+    enable: false
+    desc: 文章来自 Ever Fu
+    button: # Button
+      enable: true
+      name: 了解更多
+      url: /about/
+
+# 自定义主题颜色
+# theme_color:
+  # dark: "#8eaccd" # dark
+  # light: "#ff8080" # light
+
+# 显示模式
+display_mode:
+  # auto: 自动切换（识别设备当前主题模式） / dark: 深色模式 / light: 浅色模式
+  type: auto
+  # 开启后深色模式会显示星空背景
+  universe: true
+
+# 字体
+font:
+  font-size: 16px
+  code-font-size: 16px
+  # 全局字体
+  font-family: "PingFang SC, Hiragino Sans GB, Microsoft YaHei"
+  # 代码字体
+  code-font-family: '"monospace", monospace'
+
+# 背景图片
+background:
+  enable: false
+  opacity: .2
+  dark: https://ui.everfu.cn/cover/20240827173743.png/cover
+  light: https://ui.everfu.cn/cover/20240827173743.png/cover
+
+# 当用户退出页面时，修改标题
+lure:
+  enable: false
+  jump: 404 Not Found
+  back: ヾ(≧∇≦*)ゝHey, hey, you fell for it.
+
+# Article expiration
+# 文章过期
+expire:
+  enable: false
+  time: 30 # days
+  position: top # top / bottom
+  text_prev: "This article expired "
+  text_next: " day ago, if the content does not match, please contact the webmaster to update it."
+
+# 首页文章配置信息
+index_post_list:
+  direction: column # row / column
+  column: 2 # 2: 2 columns 3: 3 columns
+  cover: both
+
+# 相关文章
+related_post:
+  enable: true
+  limit: 2
+  # created: 发布日期 / updated: 更新日期
+  date_type: created
+
+# 自定义右键菜单
+right_menu:
+  enable: true
+  # 是否显示热门评论开关
+  commentBarrage: true
+  # 是否在按住 Ctrl 键时显示浏览器右键菜单
+  ctrlOriginalMenu: true
+  # 简繁体转换
+  translate: true
+  # 自定义列表
+  custom_list:
+    - name: 随机文章
+      click: toRandomPost()
+      id: menu-randomPost
+      class:
+      icon: fas fa-tower-broadcast
+    - name: 全部分类
+      click: pjax.loadUrl('/categories/')
+      id:
+      class:
+      icon: fas fa-clone
+    - name: 全部标签
+      click: pjax.loadUrl('/tags/')
+      id:
+      class:
+      icon: fas fa-tags
+
+# 复制信息
+copy:
+  enable: true
+  # 复制后链接版权信息
+  copyright:
+    enable: true
+    # 复制文字时超过多少字数显示
+    limit: 1
+
+# 控制台
+console:
+  enable: true
+  # 最新评论
+  recentComment:
+    enable: true
+    # 缓存时间 1: 1天 / .5 : 半天
+    storage: .2
+  card:
+    # 标签
+    tags: true
+    # 归档
+    archive: true
+
+translate:
+  enable: true
+  defaultEncoding: 2 # 1: 默认繁体 2: 默认简体
+  translateDelay: 0 # 首次加载翻译迟疑时间
+
+# 右下角悬停导航栏
+rightside:
+  enable: false
+  percent: false
+  hide:
+    enable: false
+    translate: false
+    mode: false
+    aside: false
+
+information:
+    author: false # url or false
+    left:
+      # # Github: https://github.com/everfu || fab fa-github # Name: link || icon
+      # # Mail: mailto:o@efu.me || fab fa-envelope
+    right:
+      # Bilibili: https://space.bilibili.com/1329819902 || fab fa-bilibili
+      # Douyin: https://v.douyin.com/iJsLc8jt/ || fab fa-tiktok
+
+# 底部导航栏
+group: # 从左至右
+  导航:
+    归档: /archives/
+    分类: /categories/
+    标签: /tags/
+  服务:
+    阿里云: https://aliyun.com/
+    51la统计: https://v6.51.la/
+    百度统计: https://tongji.baidu.com/
+  支持:
+    打赏记录: /about/
+  协议:
+    Cookies: /cookies/
+    用户协议: /privacy/
+    版权协议: /copyright/
+
+# 底部随机友链
+# tip：此处的友链是随机显示的，不是固定的
+# warning: 打开前必须先配置links
+randomlink: false
+# 版权
+license: /license/
+# 页脚右侧链接，例如：ICP备案号、公安备案号等
+links:
+  # 为了主题能够得到更多的支持，建议保留主题链接
+  - name: 主题
+    url: https://github.com/everfu/hexo-theme-solitude
+  - name: 订阅
+    url: /atom.xml
+
+# 404 页面
+errorpage:
+  img: /img/404.png
+  text: =awa= Page Not Found # Text
+  recommendList: true
+
+# Meting API
+meting_api: "https://meting.everfu.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r"
+
+# 音乐胶囊
+capsule:
+  enable: false
+  # 歌单 ID / 单曲 ID
+  id: 8407304077
+  # 服务商：netease / qq / xiami / kugou / baidu
+  server: netease
+  # 类型：playlist / song
+  type: playlist
+
+# 快捷菜单
+# 使用 shift + ? 打开
+keyboard:
+  enable: false
+  list:
+    - name: Close Keyboard
+      key: K
+      func: keyboard
+    - name: Open Console
+      key: A
+      sco: showConsole
+    - name: Play/Pause Music
+      key: M
+      sco: musicToggle
+    - name: Open Links
+      key: L
+      url: /links/
+
+# 图片懒加载
+lazyload:
+  enable: true
+  field: site
+  # 加载时替换图
+  placeholder: /img/loading.gif
+  # 加载失败替换图
+  errorimg: /img/404.png
+
+# 加载
+loading:
+  # 全屏加载
+  fullpage: true
+  # Pace 加载
+  pace: true
+
+# 代码块高亮
+highlight:
+  enable: true
+  # 当超过多少字时显示折叠按钮
+  limit: 200
+  # 是否启用复制按钮
+  copy: true
+  # 是否默认展开
+  expand: true
+  # default: 默认 / mac : 苹果终端
+  theme: mac
+  # default / solidity / dracula
+  color: default
+
+# 图片灯箱
+lightbox: true
+# 警告: 请任选其一，但不能同时开启。
+fancybox: false # fancybox
+mediumZoom: true # mediumZoom
+
+# 在纪念日整个网站变灰
+memorial:
+  enable: true
+  date:
+   - 7-7
+   - 9-18
+   - 12-13 # 国家公祭日
+
+# OpenGraph
+OpenGraph:
+  enable: false
+  options:
+    # twitter_card:
+    # twitter_image:
+    # twitter_id:
+    # twitter_site:
+    # google_plus:
+    # fb_admins:
+    # fb_app_id:
+
+# 字数统计
+# 警告: 请先安装 hexo-wordcount 插件。
+wordcount: true
+
+# PWA
+pwa:
+  enable: true
+  manifest: /manifest.json # manifest.json
+  theme_color: "#006a73" # Theme color
+  mask_icon: /img/favicon.ico # Mask icon
+  apple_touch_icon: /img/favicon.ico # Apple touch icon
+  bookmark_icon: /img/favicon.ico # Bookmark icon
+  favicon_32_32: /img/pwa/32.ico # 32x32 icon
+  favicon_16_16: /img/pwa/16.ico # 16x16 icon
+
+# 评论
+comment:
+  # 使用哪个评论系统（例如： waline or waline,twikoo）
+  use: twikoo
+  # 是否显示热门评论开关
+  commentBarrage: false
+  # 懒加载评论区
+  lazyload: false
+  # 显示评论数
+  count: true
+  # PV
+  pv: true
+  # Avatar
+  avatar: https://gravatar.com/avatar
+  # 热评提示
+  hot_tip:
+    enable: true
+    # Number of hot comments
+    count: 3
+  # 最新评论(⚠️ 需要先配置评论)
+  newest_comment:
+    enable: true
+    storage: .5 # 缓存时间 1: 1天 / .5 : 半天 / Cache time 1: 1 day .5 : half a day
+    limit: 5 # 评论数 / Number of comments
+
+# Twikoo
+twikoo:
+  envId: https://twikoo.luoh-an.me/
+  region: 
+  style: true
+  accessToken:
+  option:
+
+# Busuanzi
+busuanzi: true
+# 0: Original / 1: Custom
+# 0: 原版 / 1: 自定义版
+busuanzi_use: 0
+
+# Search
+search:
+  enable: true
+  # type: 使用的搜索引擎 / search engine
+  type: local # local / algolia
+  tags:
+    # - Solitude
+    # - Hexo
+  local:
+    preload: true
+    CDN: # url: search.xml
+
+# --------------------------- start ---------------------------
+# Do not modify unless necessary
+# 非必要请勿修改
+CDN:
+  internal: jsdelivr # local / cdnjs / jsdelivr / unpkg / custom
+  third_party: jsdelivr # cdnjs / jsdelivr / unpkg / custom
+  version: true # Whether to use the version number
+  custom_format: //open.lightxi.com/cdnjs/ajax/libs/${cdnjs_name}/${version}/${min_cdnjs_file} # Custom format
+  # Directly override the default CDN link (highest priority)
+  options:
+    # algolia_search:
+    # instantsearch:
+    # pjax:
+    # twikoo:
+    # waline_js:
+    # waline_css:
+    # katex:
+    # katex_copytex:
+    # lazyload:
+    # aplayer_css:
+    # aplayer_js:
+    # meting_js:
+    # pace_js:
+    # swiper_css:
+    # swiper_js:
+    # busuanzi_js:
+    # snackbar_js:

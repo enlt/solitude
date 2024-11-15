@@ -150,29 +150,59 @@ const sco = {
       });
     }
   },
-  musicToggle() {
+  musicToggle(isMeting = true) {
+    if (!this.isMusicBind) {
+      this.musicBind();
+    }
     const $music = document.querySelector('#nav-music');
     const $meting = document.querySelector('meting-js');
     const $console = document.getElementById('consoleMusic');
-    const $rm_text = document.querySelector('#menu-music-toggle span');
-    const $rm_icon = document.querySelector('#menu-music-toggle i');
+    const $rmText = document.querySelector('#menu-music-toggle span');
+    const $rmIcon = document.querySelector('#menu-music-toggle i');
+    
     this.musicPlaying = !this.musicPlaying;
     $music.classList.toggle("playing", this.musicPlaying);
-    $console.classList.toggle("on", this.musicPlaying);
+    $music.classList.toggle("stretch", this.musicPlaying);
+    $console?.classList.toggle("on", this.musicPlaying);
+    
     if (this.musicPlaying) {
-      $meting.aplayer.play();
-      (typeof rm !== 'undefined') && rm?.menuItems.music[0] && ($rm_text.textContent = GLOBAL_CONFIG.right_menu.music.stop) && ($rm_icon.className = 'solitude fas fa-pause')
+      if (typeof rm !== 'undefined' && rm?.menuItems.music[0]) {
+        $rmText.textContent = GLOBAL_CONFIG.right_menu.music.stop;
+        $rmIcon.className = 'solitude fas fa-pause';
+      }
     } else {
-      $meting.aplayer.pause();
-      (typeof rm !== 'undefined') && rm?.menuItems.music[0] && ($rm_text.textContent = GLOBAL_CONFIG.right_menu.music.start) && ($rm_icon.className = 'solitude fas fa-play')
+      if (typeof rm !== 'undefined' && rm?.menuItems.music[0]) {
+        $rmText.textContent = GLOBAL_CONFIG.right_menu.music.start;
+        $rmIcon.className = 'solitude fas fa-play';
+      }
     }
+
+    if(isMeting){
+      this.musicPlaying ? $meting.aplayer.play() : $meting.aplayer.pause();
+    }
+  },
+  musicBind() {
+    const $music = document.querySelector('#nav-music');
+    const $name = document.querySelector('#nav-music .aplayer-music');
+    const $button = document.querySelector('#nav-music .aplayer-button');
+    
+    $name?.addEventListener('click', () => {
+      $music.classList.toggle("stretch");
+    });
+
+    $button?.addEventListener('click', () => {
+      this.musicToggle(false);
+    });
+    
+    this.isMusicBind = true;
   },
   switchCommentBarrage() {
     let commentBarrageElement = document.querySelector(".comment-barrage");
+    let consoleCommentBarrage = document.querySelector("#consoleCommentBarrage");
     if (!commentBarrageElement) return;
     const isDisplayed = window.getComputedStyle(commentBarrageElement).display === "flex";
     commentBarrageElement.style.display = isDisplayed ? "none" : "flex";
-    document.querySelector("#consoleCommentBarrage").classList.toggle("on", !isDisplayed);
+    consoleCommentBarrage && consoleCommentBarrage.classList.toggle("on", !isDisplayed);
     utils.saveToLocal.set("commentBarrageSwitch", !isDisplayed, .2);
     rm?.menuItems.barrage && rm.barrage(isDisplayed)
   },
@@ -188,7 +218,7 @@ const sco = {
     this.sco_keyboards = !this.sco_keyboards;
     const consoleKeyboard = document.querySelector("#consoleKeyboard");
     const keyboardFunction = this.sco_keyboards ? openKeyboard : closeKeyboard;
-    consoleKeyboard.classList.toggle("on", this.sco_keyboards);
+    consoleKeyboard?.classList.toggle("on", this.sco_keyboards);
     keyboardFunction();
     localStorage.setItem("keyboard", this.sco_keyboards);
     document.getElementById('keyboard-tips')?.classList.remove('show');
@@ -226,7 +256,9 @@ const sco = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            waterfall(entry.target) || entry.target.classList.add('show');
+            waterfall(entry.target).then(() => {
+              entry.target.classList.add('show');
+            });
           }, 300);
         }
       });
@@ -492,9 +524,15 @@ const addHighlight = () => {
   const createEle = (lang, item, service) => {
     const fragment = document.createDocumentFragment()
     if ($isShowTool) {
+      const captionItem = item.querySelector('figcaption')
+      let caption = ''
+      if (captionItem) {
+        caption = `<div class="caption">${captionItem.innerHTML}</div>`
+        item.removeChild(captionItem)
+      }
       const hlTools = document.createElement('div')
       hlTools.className = `highlight-tools ${expandClass}`
-      hlTools.innerHTML = expandEle + lang + copyEle
+      hlTools.innerHTML = expandEle + lang + caption + copyEle
       utils.addEventListenerPjax(hlTools, 'click', ToolsFn)
       fragment.appendChild(hlTools)
     }
@@ -657,7 +695,7 @@ class tabs {
     if (expire.time > ex) return;
     const ele = document.createElement('div');
     ele.className = 'expire';
-    ele.innerHTML = `<i class="solitude st-circle-exclamation-solid"></i>${expire.text_prev}${-(expire.time - ex)}${expire.text_next}`;
+    ele.innerHTML = `<i class="solitude fas fa-circle-exclamation"></i>${expire.text_prev}${-(expire.time - ex)}${expire.text_next}`;
     const articleContainer = document.getElementById('article-container');
     articleContainer.insertAdjacentElement(expire.position === 'top' ? 'afterbegin' : 'beforeend', ele);
   }

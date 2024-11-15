@@ -96,6 +96,7 @@ search:
   hit: 找到 ${hits} 条结果，用时 ${time} 毫秒
   placeholder: 输入关键词快速查找
   count: 共 <b>${count}</b> 条结果。
+  load: 搜索中...
 
 head:
   noscript: 开启JavaScript才能访问本站哦~
@@ -114,7 +115,7 @@ aside:
   back: 欢迎再次回来，
   sticker: 心情贴纸
   newpost: 最近发布
-  newcomment: 最新评论
+  newcomment: 最近评论
   card:
     posts: '累计文章数:'
     tags: '标签总数:'
@@ -240,6 +241,7 @@ rightside:
     toc: 目录
     comment: 评论
     top: 返回顶部
+    barrage: 弹
   hide:
     translate: 简繁转换
     mode: 显示模式切换
